@@ -331,3 +331,72 @@ lrange $list 2 3
 lrange $list 3 2; # Returns nothing
 ```
 
+### Strings
+
+```tcl
+set a "This is my test string"
+string length $a; # 22
+string index $a 5; # i
+string range $a 2 10; # is is my
+set a "One Two Three Four";
+set b "One Two Three Four Five";
+# Compare lengths
+string compare $a $b; # -1
+if {[string compare $a $b]} {
+    puts Matched;
+}; # Prints "Matched"
+
+# Find the first occurrence of a character
+string first F $a; # Prints 14
+# Find the last occurrence of a character
+string last o $a; # Prints 15
+# Find index of first character of the word that contains specified index 
+string wordstart $a 3; # Prints 3
+# Find index of last character of the word that contains specified index 
+string wordend $a 3; # Prints 4
+
+string match *ree* $a;
+# Prints 1 because 1 match
+```
+
+
+### Arrays
+
+```tcl
+set myarray(name) "Pranav"
+set myarray(age) 23
+array exists myarray; # 1
+array names myarray; # "age name"
+array get myarray; # "age 23 name Pranav"
+array unset myarray na*;
+array get myarray; # "age 23"
+set a [list "abc 1" "xyz 2"]
+array set b $a
+array exists b; # 1
+array get b; # "{abc 1} {xyz 2}"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
